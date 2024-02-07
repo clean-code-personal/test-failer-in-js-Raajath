@@ -1,8 +1,10 @@
-let transmissionFailureCount = 0;
+const {expect}=require('chai');
+let transmissionFailureCount=0
+//let count = 0;
 
 function networkTransmitStub(celcius) {
     console.log(`Temperature to transmit: ${celcius} celcius`);
-
+    randomNumber=Math.random();
     // The intention here is to transmit the temperature over a network.
     // However, this is a stub, so we just print the message above
     // and give back a return code.
@@ -10,7 +12,9 @@ function networkTransmitStub(celcius) {
     // Return 200 for ok
     // Return 500 for not-ok
     // This stub always succeeds and returns 200
-    return 200;
+    // return 500 on odd calls and 200 in even calls
+
+    return randomNumber<0.5?500:200;
 }
 
 function transmitInCelcius(farenheit) {
@@ -27,5 +31,20 @@ function transmitInCelcius(farenheit) {
 
 transmitInCelcius(400.5);
 transmitInCelcius(303.6);
+
+transmitInCelcius(401.5);
+transmitInCelcius(302.6);
+
+transmitInCelcius(403.5);
+transmitInCelcius(305.6);
+
+
+
+
+
+
+expect(transmissionFailureCount).to.be.at.least(1);
+
 console.log(`Transmission failed ${transmissionFailureCount} times.`);
+
 console.log('All is well (maybe!)');
