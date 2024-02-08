@@ -1,4 +1,4 @@
-const {expect}=require('chai');
+
 let transmissionFailureCount=0
 //let count = 0;
 
@@ -12,8 +12,8 @@ function networkTransmitStub(celcius) {
     // Return 200 for ok
     // Return 500 for not-ok
     // This stub always succeeds and returns 200
-    // return 500 on odd calls and 200 in even calls
-
+   
+    // random return
     return randomNumber<0.5?500:200;
 }
 
@@ -29,22 +29,6 @@ function transmitInCelcius(farenheit) {
     }
 }
 
-transmitInCelcius(400.5);
-transmitInCelcius(303.6);
-
-transmitInCelcius(401.5);
-transmitInCelcius(302.6);
-
-transmitInCelcius(403.5);
-transmitInCelcius(305.6);
 
 
-
-
-
-
-expect(transmissionFailureCount).to.be.at.least(1);
-
-console.log(`Transmission failed ${transmissionFailureCount} times.`);
-
-console.log('All is well (maybe!)');
+module.exports={transmitInCelcius,transmissionFailureCount};
