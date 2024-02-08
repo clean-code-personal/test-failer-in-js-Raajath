@@ -1,6 +1,7 @@
 
-let transmissionFailureCount=0
-//let count = 0;
+let transmissionFailureCount=0;
+
+let firstErrorCheck=true;
 
 function networkTransmitStub(celcius) {
     console.log(`Temperature to transmit: ${celcius} celcius`);
@@ -14,7 +15,14 @@ function networkTransmitStub(celcius) {
     // This stub always succeeds and returns 200
    
     // random return
+    if(firstErrorCheck)
+    {   firstErrorCheck=false;
+        return 500;
+    }
+    else
+    {
     return randomNumber<0.5?500:200;
+    }
 }
 
 function transmitInCelcius(farenheit) {
@@ -28,7 +36,12 @@ function transmitInCelcius(farenheit) {
         transmissionFailureCount += 0;
     }
 }
+transmitInCelcius(400.5);
+transmitInCelcius(303.6);
+transmitInCelcius(401.5);
+transmitInCelcius(400.5);
 
 
 
-module.exports={transmitInCelcius,transmissionFailureCount};
+
+module.exports={transmissionFailureCount};

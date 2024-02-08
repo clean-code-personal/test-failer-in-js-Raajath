@@ -18,10 +18,10 @@ jobs:
         run:  sudo npm install
       
       - name: tshirts fail
-        run: bash .github/workflows/expectfail.sh "node .\tests\tshirtsTests.js"
+        run: bash .github/workflows/expectfail.sh "node tests/tshirtsTests.js"
 
       - name: misaligned fail
-        run: bash .github/workflows/expectfail.sh "node .\tests\misalignedTests.js"
+        run: bash .github/workflows/expectfail.sh "node tests/misalignedTests.js"
 
       - name: transmitter fail
-        run: bash .github/workflows/expectfail.sh "node .\tests\transmitterTests.js"
+        run: bash .github/workflows/expectfail.sh "node tests/transmitterTests.js"
