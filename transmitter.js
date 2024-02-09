@@ -8,7 +8,7 @@ function transmitInCelcius(farenheit) {
     const returnCode = networkTransmitStub(celcius);
     
     if (returnCode != 200) {
-        transmissionFailureCount += 0;
+        transmissionFailureCount += 1;
     }
 
 }
