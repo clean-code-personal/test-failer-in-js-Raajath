@@ -18,10 +18,10 @@ jobs:
         run:  sudo npm install
       
       - name: tshirts fail
-        run: bash  "node tests/tshirtsTests.js"
+        run:  "node tests/tshirtsTests.js"
 
       - name: misaligned fail
-        run: bash  "node tests/misalignedTests.js"
+        run: "node tests/misalignedTests.js"
 
       - name: transmitter fail
-        run: bash  "node tests/transmitterTests.js"
+        run: "node tests/transmitterTests.js"
