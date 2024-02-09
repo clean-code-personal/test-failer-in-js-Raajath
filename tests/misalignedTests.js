@@ -1,7 +1,7 @@
 const {expect} = require('chai');
 const {colorArray,colorMapObject}=require('../misalignedStctures');
 
-/*function testAlignment(colorArray){
+function testAlignment(colorArray){
 
 colorArray.forEach((pair)=>{
 expect(pair.charAt(3)).equals('|');
@@ -9,7 +9,7 @@ expect(pair.charAt(12)).equals('|');
 
 });
 }
-*/
+
  
 function testEntry(colorMapObject){
    let previousRowNumber=-1; 
@@ -32,7 +32,7 @@ function testEntry(colorMapObject){
 
 }
 
-//testAlignment(colorArray);
+testAlignment(colorArray);
 testEntry(colorMapObject);
 
 
