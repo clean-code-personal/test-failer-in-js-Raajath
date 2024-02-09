@@ -1,12 +1,23 @@
 const {expect}=require('chai');
+const {networkTransmitStubFailure,networkTransmitStubSucess}=require('./stub');
+const {transmission}=require('../transmitter');
 
-const {transmissionFailureCount}=require('../transmitter');
+//successful Transmission
+let testTransmissionSucess=transmission(networkTransmitStubSucess); 
+testTransmissionSucess.transmitInCelcius(300);
+testTransmissionSucess.transmitInCelcius(200);
+expect(testTransmissionSucess.getTransmissionFailureCount()).equals(0);
+console.log(`Transmission failed ${testTransmissionSucess.getTransmissionFailureCount()} times.`);
 
 
+//Failure in Transmission
+let testTransmissionFailure=transmission(networkTransmitStubFailure);
+testTransmissionFailure.transmitInCelcius(250);
+testTransmissionFailure.transmitInCelcius(350);
+expect(testTransmissionFailure.getTransmissionFailureCount()).equals(2);
+console.log(`Transmission failed ${testTransmissionFailure.getTransmissionFailureCount()} times.`);
 
-// Stub of network transmission is in transmitter file where randomly 200 or 500 is called
-expect(transmissionFailureCount).to.be.at.least(1);
 
-console.log(`Transmission failed ${transmissionFailureCount} times.`);
 
 console.log('All is well (maybe!)');
+
