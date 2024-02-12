@@ -12,7 +12,6 @@ expect(currentRow.charAt(secondSeperator)).equals('|');
 });
 }
 
- 
 function testEntry(colorMapObject){
   
 
