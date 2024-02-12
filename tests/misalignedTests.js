@@ -14,7 +14,7 @@ expect(currentRow.charAt(secondSeperator)).equals('|');
 
  
 function testEntry(colorMapObject){
-   let previousRowNumber=null; 
+  
 
   colorMapObject.forEach((currentRow)=>{
     expect(colorArray.length).equals(25); //size check
@@ -23,6 +23,7 @@ function testEntry(colorMapObject){
     expect(currentRow.number).to.be.within(1,25); // Range check
   
     //check duplicate presence
+    let previousRowNumber=null; 
     if(currentRow.number===previousRowNumber){
       expect(currentRow.number).equals(previousRowNumber+1);
      }
