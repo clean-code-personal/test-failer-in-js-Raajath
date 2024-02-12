@@ -1,17 +1,13 @@
-
 function transmission(networkTransmitStub)
 {
     
 let transmissionFailureCount=0;
-
 function transmitInCelcius(farenheit) {
     const celcius = (farenheit - 32) * 5 / 9;
     const returnCode = networkTransmitStub(celcius);
-    
     if (returnCode != 200) {
         transmissionFailureCount += 1;
     }
-
 }
 
 function getTransmissionFailureCount(){
@@ -20,8 +16,5 @@ function getTransmissionFailureCount(){
 
 return {getTransmissionFailureCount ,transmitInCelcius};
 }
-
-
-
 
 module.exports={transmission};
