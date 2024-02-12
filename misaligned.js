@@ -9,7 +9,6 @@ function getColorString() {
         maxLength = color.length;
      }
     }
-
     for (let i = 0; i < majorColors.length; i++) {
         for (let j = 0; j < minorColors.length; j++) {
             const index = i * minorColors.length + j + 1;
