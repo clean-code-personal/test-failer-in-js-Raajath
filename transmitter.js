@@ -1,7 +1,8 @@
 
 function transmission(networkTransmitStub)
 {
-    let transmissionFailureCount=0;
+    
+let transmissionFailureCount=0;
 
 function transmitInCelcius(farenheit) {
     const celcius = (farenheit - 32) * 5 / 9;
